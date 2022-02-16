@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+<!-- @format -->
+
 # Bridge
 
 Bridge Service is one of the important responsibilities of a validator.
@@ -18,4 +20,4 @@ Queue is where all the events received from different chains is stored to execut
 Processor is responsible for processing the events from different chains and transforms them into a format that the receiver chain of event understands.
 
 **Broadcaster:**
- Brodcaster brodcasts information to the receiver chain according to reciever ID of the event. Brodcaster also creates a message type the receivr chain understands.
+Brodcaster brodcasts information to the receiver chain according to reciever ID of the event. Brodcaster also creates a message type the receivr chain understands.

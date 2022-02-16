@@ -2,6 +2,8 @@
 sidebar_position: 6
 ---
 
+<!-- @format -->
+
 # Staking
 
 ## Overview
@@ -25,21 +27,21 @@ All rewards are distributed on the Ethereum chain. The validators and delegators
 Source:[https://github.com/dojimanetwork/watchman/tree/master/contracts/stakinginfo/](https://github.com/dojimanetwork/watchman/tree/master/contracts/stakinginfo/)
 
 ```
-** * Staked event - emitted whenever new validator 
-* 
-* @param signer Signer address for the validator 
-* @param validatorId Validator id 
-* @param activationEpoch Activation epoch for validator 
-* @param amount Staked amount 
-* @param total Total stake 
-* @param signerPubKey Signer public key (required by watchman/Tendermint) 
+** * Staked event - emitted whenever new validator
+*
+* @param signer Signer address for the validator
+* @param validatorId Validator id
+* @param activationEpoch Activation epoch for validator
+* @param amount Staked amount
+* @param total Total stake
+* @param signerPubKey Signer public key (required by watchman/Tendermint)
 */
-event Staked( 
+event Staked(
       address indexed signer,
       uint256 indexed validatorId,
-      uint256 indexed activationEpoch, 
-      uint256 amount, 
-      uint256 total, 
+      uint256 indexed activationEpoch,
+      uint256 amount,
+      uint256 total,
       bytes signerPubkey
 );
 ```
@@ -51,13 +53,13 @@ Stake call on smart contract fails if slots are unavailable. Validator slots are
 Here is ValidatorJoin message for Watchman transaction:
 
 ```
-type MsgValidatorJoin struct { 
-     From hmTypes.HeimdallAddress `json:"from"` 
-     ID hmTypes.ValidatorID `json:"id"` 
-     SignerPubKey hmTypes.PubKey `json:"pub_key"` 
-     TxHash hmTypes.HeimdallHash `json:"tx_hash"` 
+type MsgValidatorJoin struct {
+     From hmTypes.HeimdallAddress `json:"from"`
+     ID hmTypes.ValidatorID `json:"id"`
+     SignerPubKey hmTypes.PubKey `json:"pub_key"`
+     TxHash hmTypes.HeimdallHash `json:"tx_hash"`
      LogIndex uint64 `json:"log_index"`
-}    
+}
 ```
 
 ### MsgStakeUpdate
@@ -65,27 +67,27 @@ type MsgValidatorJoin struct {
 `MsgStakeUpdate` handles the stake update when a validator the re-stakes or new delegation comes in. In either case, the new StakeUpdate event is emitted.
 
 ```
-/** 
-* Stake update event - emitted whenever stake gets updated 
-* 
-* @param validatorId Validator id 
-* @param newAmount New staked amount 
+/**
+* Stake update event - emitted whenever stake gets updated
+*
+* @param validatorId Validator id
+* @param newAmount New staked amount
 */
-event StakeUpdate( 
-      uint256 indexed validatorId, 
+event StakeUpdate(
+      uint256 indexed validatorId,
       uint256 indexed newAmount
    );
-   ```
+```
 
-   Here is MsgStakeUpdate message for Heimdall transaction:
+Here is MsgStakeUpdate message for Heimdall transaction:
 
- ```
-   // MsgStakeUpdate represents stake updatetype MsgStakeUpdate 
-struct { 
-      From hmTypes.HeimdallAddress `json:"from"` 
-      ID hmTypes.ValidatorID `json:"id"` 
-      TxHash hmTypes.HeimdallHash `json:"tx_hash"` 
-      LogIndex uint64 `json:"log_index"`
+```
+  // MsgStakeUpdate represents stake updatetype MsgStakeUpdate
+struct {
+     From hmTypes.HeimdallAddress `json:"from"`
+     ID hmTypes.ValidatorID `json:"id"`
+     TxHash hmTypes.HeimdallHash `json:"tx_hash"`
+     LogIndex uint64 `json:"log_index"`
 }
 ```
 
@@ -94,23 +96,22 @@ struct {
 `MsgValidatorExit` handles the validator exit process after a validator initiates the exit process on Ethereum. It emits `SignerUpdate` event.
 
 ```
-// MsgStakeUpdate represents stake updatetype MsgStakeUpdate 
-struct { 
-      From hmTypes.HeimdallAddress `json:"from"` 
-      ID hmTypes.ValidatorID `json:"id"` 
-      TxHash hmTypes.HeimdallHash `json:"tx_hash"` 
+// MsgStakeUpdate represents stake updatetype MsgStakeUpdate
+struct {
+      From hmTypes.HeimdallAddress `json:"from"`
+      ID hmTypes.ValidatorID `json:"id"`
+      TxHash hmTypes.HeimdallHash `json:"tx_hash"`
       LogIndex uint64 `json:"log_index"`
 }
 ```
 
-
 Here is MsgValidatorExit message for Watchman transaction:
 
 ```
-type MsgValidatorExit struct { 
-     From hmTypes.HeimdallAddress `json:"from"` 
-     ID hmTypes.ValidatorID `json:"id"` 
-     TxHash hmTypes.HeimdallHash `json:"tx_hash"` 
+type MsgValidatorExit struct {
+     From hmTypes.HeimdallAddress `json:"from"`
+     ID hmTypes.ValidatorID `json:"id"`
+     TxHash hmTypes.HeimdallHash `json:"tx_hash"`
      LogIndex uint64 `json:"log_index"`
 }
 ```
@@ -121,30 +122,31 @@ type MsgValidatorExit struct {
 
 ```
 /**
-* Signer change event - emitted whenever signer key changes 
-* 
-* @param validatorId Validator id 
-* @param oldSigner Current old signer 
-* @param newSigner New signer 
-* @param signerPubkey New signer public key 
+* Signer change event - emitted whenever signer key changes
+*
+* @param validatorId Validator id
+* @param oldSigner Current old signer
+* @param newSigner New signer
+* @param signerPubkey New signer public key
 */
-event SignerChange(  
-     uint256 indexed validatorId, 
-     address indexed oldSigner, 
-     address indexed newSigner, 
+event SignerChange(
+     uint256 indexed validatorId,
+     address indexed oldSigner,
+     address indexed newSigner,
      bytes signerPubkey
   );
-  ```
-  Here is `MsgSignerUpdate` message for Watchman transaction:
+```
 
-  ```
-  // MsgSignerUpdate signer update struct
-type MsgSignerUpdate struct { 
-     From hmTypes.HeimdallAddress `json:"from"` 
-     ID hmTypes.ValidatorID `json:"id"` 
-     NewSignerPubKey hmTypes.PubKey `json:"pubKey"` 
-     TxHash hmTypes.HeimdallHash `json:"tx_hash"` 
-     LogIndex uint64 `json:"log_index"`
+Here is `MsgSignerUpdate` message for Watchman transaction:
+
+```
+// MsgSignerUpdate signer update struct
+type MsgSignerUpdate struct {
+   From hmTypes.HeimdallAddress `json:"from"`
+   ID hmTypes.ValidatorID `json:"id"`
+   NewSignerPubKey hmTypes.PubKey `json:"pubKey"`
+   TxHash hmTypes.HeimdallHash `json:"tx_hash"`
+   LogIndex uint64 `json:"log_index"`
 }
 ```
 
@@ -155,22 +157,22 @@ type MsgSignerUpdate struct {
 **By signer address**
 
 ```
-wmcli query staking validator-info \ 
---validator=<signer-address> \ 
+wmcli query staking validator-info \
+--validator=<signer-address> \
 --chain-id <chain-id>
 ```
 
 This command should display the following output:
 
 ```
-{ 
-  "ID":1, 
-  "startEpoch":0, 
-  "endEpoch":0, 
-  "power":10, 
-  "pubKey":"0x04b12d8b2f6e3d45a7ace12c4b2158f79b95e4c28ebe5ad54c439be9431d7fc9dc1164210bf6a5c3b8523528b931e772c86a307e8cff4b725e6b4a77d21417bf19", 
-  "signer":"0x6c468cf8c9879006e22ec4029696e005c2319c9d", 
-  "last_updated":0, 
+{
+  "ID":1,
+  "startEpoch":0,
+  "endEpoch":0,
+  "power":10,
+  "pubKey":"0x04b12d8b2f6e3d45a7ace12c4b2158f79b95e4c28ebe5ad54c439be9431d7fc9dc1164210bf6a5c3b8523528b931e772c86a307e8cff4b725e6b4a77d21417bf19",
+  "signer":"0x6c468cf8c9879006e22ec4029696e005c2319c9d",
+  "last_updated":0,
   "accum":0
 }
 ```
@@ -178,22 +180,22 @@ This command should display the following output:
 **By validator address**
 
 ```
-wmcli query staking validator-info \ 
---id=<validator-id> \ 
+wmcli query staking validator-info \
+--id=<validator-id> \
 --chain-id=<chain-id>
 ```
 
 This command should display the following output:
 
 ```
-{ 
-  "ID":1, 
-  "startEpoch":0, 
-  "endEpoch":0, 
-  "power":10, 
-  "pubKey":"0x04b12d8b2f6e3d45a7ace12c4b2158f79b95e4c28ebe5ad54c439be9431d7fc9dc1164210bf6a5c3b8523528b931e772c86a307e8cff4b725e6b4a77d21417bf19", 
-  "signer":"0x6c468cf8c9879006e22ec4029696e005c2319c9d", 
-  "last_updated":0, 
+{
+  "ID":1,
+  "startEpoch":0,
+  "endEpoch":0,
+  "power":10,
+  "pubKey":"0x04b12d8b2f6e3d45a7ace12c4b2158f79b95e4c28ebe5ad54c439be9431d7fc9dc1164210bf6a5c3b8523528b931e772c86a307e8cff4b725e6b4a77d21417bf19",
+  "signer":"0x6c468cf8c9879006e22ec4029696e005c2319c9d",
+  "last_updated":0,
   "accum":0
 }
 ```
@@ -203,10 +205,10 @@ This command should display the following output:
 This command sends validator join command through CLI:
 
 ```
-wmcli tx staking validator-join \ 
---signer-pubkey <signer-public-key> \ 
---tx-hash <tx-hash> \ 
---log-index <log-index> \ 
+wmcli tx staking validator-join \
+--signer-pubkey <signer-public-key> \
+--tx-hash <tx-hash> \
+--log-index <log-index> \
 --chain-id <chain-id>
 ```
 
@@ -214,9 +216,9 @@ wmcli tx staking validator-join \
 
 ## REST APIs
 
-| Name | Method | EndPoint |
-| :--- | :--- | :--- |
-| Get Watchman validator set | GET | /staking/validator-set |
-| Get validator detils | GET | /staking/validator/validator-id |
+| Name                       | Method | EndPoint                        |
+| :------------------------- | :----- | :------------------------------ |
+| Get Watchman validator set | GET    | /staking/validator-set          |
+| Get validator detils       | GET    | /staking/validator/validator-id |
 
 `All query APIs will result in following format:Copy{ "height": "1", "result": { ... }}`

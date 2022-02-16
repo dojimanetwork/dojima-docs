@@ -2,6 +2,9 @@
 sidebar_position: 2
 title: auth
 ---
+
+<!-- @format -->
+
 # Auth
 
 ## Overview
@@ -28,36 +31,38 @@ Besides accounts (specified in State), the types exposed by the auth module are 
 
 A `StdSignature` is the types of a byte array.
 
-```text
+```typescript
 // StdSignature represents a sig
 type StdSignature []byte
 ```
+
 ### StdTx
 
 A `StdTx` is a struct that implements the `sdk.Tx` interface, and is likely to be generic enough to serve the purposes of many types of transactions.
 
-``` text
-type StdTx struct { 
-Msg sdk.Msg `json:"msg" yaml:"msg"` 
-Signature StdSignature `json:"signature" yaml:"signature"` 
+```typescript
+type StdTx struct {
+Msg sdk.Msg `json:"msg" yaml:"msg"`
+Signature StdSignature `json:"signature" yaml:"signature"`
 Memo string `json:"memo" yaml:"memo"`
 }
 ```
+
 ### StdSignDoc
 
 A `StdSignDoc` is a replay-prevention structure to be signed over, which ensures that any submitted transaction (which is simply a signature over a particular byte string) will only be executable once on a Watchman.
 
-``` text
+```text
 // StdSignDoc is replay-prevention structure.
 // It includes the result of msg.GetSignBytes(),
 // as well as the ChainID (prevent cross chain replay)
 // and the Sequence numbers for each signature (prevent
 // inchain replay and enforce tx ordering per account).
-type StdSignDoc struct { 
-ChainID string `json:"chain_id" yaml:"chain_id"` 
-AccountNumber uint64 `json:"account_number" yaml:"account_number"` 
-Sequence uint64 `json:"sequence" yaml:"sequence"` 
-Msg json.RawMessage `json:"msg" yaml:"msg"` 
+type StdSignDoc struct {
+ChainID string `json:"chain_id" yaml:"chain_id"`
+AccountNumber uint64 `json:"account_number" yaml:"account_number"`
+Sequence uint64 `json:"sequence" yaml:"sequence"`
+Msg json.RawMessage `json:"msg" yaml:"msg"`
 Memo string `json:"memo" yaml:"memo"`
 }
 ```
@@ -68,11 +73,11 @@ It manages addresses, coins and nonce for transactions. It also signs and valida
 Source:[https://github.com/dojimanetwork/watchman/blob/master/auth/types/account.go](https://github.com/dojimanetwork/watchman/blob/master/auth/types/account.go)
 
 ```text
-type BaseAccount struct { 
-Address types.HeimdallAddress `json:"address" yaml:"address"` 
-Coins types.Coins `json:"coins" yaml:"coins"` 
-PubKey crypto.PubKey `json:"public_key" yaml:"public_key"` 
-AccountNumber uint64 `json:"account_number" yaml:"account_number"` 
+type BaseAccount struct {
+Address types.HeimdallAddress `json:"address" yaml:"address"`
+Coins types.Coins `json:"coins" yaml:"coins"`
+PubKey crypto.PubKey `json:"public_key" yaml:"public_key"`
+AccountNumber uint64 `json:"account_number" yaml:"account_number"`
 Sequence uint64 `json:"sequence" yaml:"sequence"`
 }
 ```
@@ -81,15 +86,15 @@ Sequence uint64 `json:"sequence" yaml:"sequence"`
 
 The auth module contains the following parameters:
 
-| Key | Type | Value |
-| :--- | :--- | :--- |
-| MaxMemoCharacters | uint64 | 256 |
-| TxSigLimit | uint64 | 7 |
-| TxSizeCostPerByte | uint64 | 10 |
-| SigVerifyCostED25519 | uint64 | 590 |
-| SigVerifyCostSecp256k1 | uint64 | 1000 |
-| DefaultMaxTxGas | uint64 | 1000000 |
-| DefaultTxFees | string | "1000000000000000" |
+| Key                    | Type   | Value              |
+| :--------------------- | :----- | :----------------- |
+| MaxMemoCharacters      | uint64 | 256                |
+| TxSigLimit             | uint64 | 7                  |
+| TxSizeCostPerByte      | uint64 | 10                 |
+| SigVerifyCostED25519   | uint64 | 590                |
+| SigVerifyCostSecp256k1 | uint64 | 1000               |
+| DefaultMaxTxGas        | uint64 | 1000000            |
+| DefaultTxFees          | string | "1000000000000000" |
 
 ## CLI Commands
 
@@ -101,10 +106,10 @@ The auth module contains the following parameters:
 
 ```text
 {
- "address": "0x68243159a498cf20d945cf3E4250918278BA538E", 
+ "address": "0x68243159a498cf20d945cf3E4250918278BA538E",
  "pub_key": "0x040a9f6879c7cdab7ecc67e157cda15e8b2ddbde107a04bc22d02f50032e393f6360a05e85c7c1ecd201ad30dfb886af12dd02b47e4463f6f0f6f94159dc9f10b8"
  }
- ```
+```
 
 ### Account and coin details
 
@@ -112,14 +117,13 @@ To display account details, coins, sequence and account number:
 
 `wmcli query auth account 0x68243159a498cf20d945cf3E4250918278BA538E --trust-node`
 
-
 ### Expected Result:
 
 ```text
 address: 0x68243159a498cf20d945cf3e4250918278ba538e
 coins:
-- denom: dojima 
-    amount: 
+- denom: dojima
+    amount:
     i: "1000000000000000000000"
 pubkey: ""
 accountnumber: 0
@@ -146,10 +150,8 @@ tx_fees: "1000000000000000"
 
 ## REST APIs
 
-| Name | Endpoint | Description |
-| :--- | :--- | :--- |
-| Account details | /auth/accounts/{address} | Returns all details for an address |
-| Account sequence details| /auth/accounts/{address}/sequence |Returns only necessary details for signing |
-| Auth params | /auth/params | Returns all params auth module uses |
-
-
+| Name                     | Endpoint                          | Description                                |
+| :----------------------- | :-------------------------------- | :----------------------------------------- |
+| Account details          | /auth/accounts/{address}          | Returns all details for an address         |
+| Account sequence details | /auth/accounts/{address}/sequence | Returns only necessary details for signing |
+| Auth params              | /auth/params                      | Returns all params auth module uses        |

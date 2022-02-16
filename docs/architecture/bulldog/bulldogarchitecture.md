@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+<!-- @format -->
+
 # Bulldog Architecture
 
 ### Bulldog chain
@@ -35,8 +37,8 @@ Ratio of Stake/Staking power specifies the probability to be selected as a membe
 ### Selection Process
 
 - Let's suppose we have 3 validators in pool, and they are Alice, Bill and Clara.
-- Alice staked 100 DOJ  tokens whereas Bill and Clara staked 40 DOJ tokens.
-- Validators are given slots according to the stake, as Alice has 100 DOJ  tokens staked, she will get slots proportionally. Alice will get 5 slots in total. Similarly, Bill and Clara get 2 slots in total.
+- Alice staked 100 DOJ tokens whereas Bill and Clara staked 40 DOJ tokens.
+- Validators are given slots according to the stake, as Alice has 100 DOJ tokens staked, she will get slots proportionally. Alice will get 5 slots in total. Similarly, Bill and Clara get 2 slots in total.
 - All the validators are given these slots [ A, A, A, A, A, B, B, C, C ]
 - Using historical block data as seed, we shuffle this array.
 - After shuffling the slots using the seed, say we get this array [ A, B, A, A, C, B, A, A, C]

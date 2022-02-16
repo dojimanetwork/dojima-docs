@@ -1,33 +1,35 @@
+/** @format */
+
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Dộjima Network',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/dojimaicon.svg',
-  organizationName: 'Dộjima Network', // Usually your GitHub org/user name.
-  projectName: 'DộjimaDocs', // Usually your repo name.
+  title: "Dộjima Network",
+  tagline: "Dinosaurs are cool",
+  url: "https://your-docusaurus-test-site.com",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/dojimaicon.svg",
+  organizationName: "Dộjima Network", // Usually your GitHub org/user name.
+  projectName: "DộjimaDocs", // Usually your repo name.
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: 'https://github.com/dojimanetwork/dojima-docs.git',
+          editUrl: "https://github.com/dojimanetwork/dojima-docs.git",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -39,49 +41,49 @@ const config = {
       navbar: {
         // title: 'Dojima',
         logo: {
-          alt: 'Dojima Logo',
-          src: 'img/Logo white.svg',
+          alt: "Dojima Logo",
+          src: "img/Logo white.svg",
         },
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: "Tutorial",
+                to: "/docs/intro",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Community",
             items: [
               {
-                label: 'Discord',
-                href: 'https://discord.gg/tWzKNF339N',
+                label: "Discord",
+                href: "https://discord.gg/tWzKNF339N",
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/dojimanetwork',
+                label: "Twitter",
+                href: "https://twitter.com/dojimanetwork",
               },
               {
-                label:'Medium',
-                href:'https://medium.com/@dojimanetwork'
+                label: "Medium",
+                href: "https://medium.com/@dojimanetwork",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: "Blog",
+                to: "/blog",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: "GitHub",
+                href: "https://github.com/facebook/docusaurus",
               },
             ],
           },

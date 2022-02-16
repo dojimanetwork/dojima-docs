@@ -2,11 +2,13 @@
 sidebar_position: 4
 ---
 
+<!-- @format -->
+
 # Governence
 
-## Overview 
+## Overview
 
-Watchman governance works exactly the same as Cosmos-sdk `x/gov` module. 
+Watchman governance works exactly the same as Cosmos-sdk `x/gov` module.
 [https://docs.cosmos.network/master/modules/gov/](https://docs.cosmos.network/master/modules/gov/)
 
 In this system, holders of the native staking token of the chain can vote on proposals on a `1 token = 1 vote` basis. Next is a list of features the module currently supports:
@@ -38,80 +40,77 @@ wmcli query gov params --trust-node
 This shows all params for governance module
 
 ```
-voting_params: 
+voting_params:
    voting_period: 48h0m0
-stally_params: 
-   quorum: "334000000000000000" 
-   threshold: "500000000000000000" 
+stally_params:
+   quorum: "334000000000000000"
+   threshold: "500000000000000000"
    veto: "334000000000000000"
-deposit_parmas: 
-   min_deposit: 
-   - denom: dojima 
-   amount: 
-     i: "10000000000000000000" 
+deposit_parmas:
+   min_deposit:
+   - denom: dojima
+   amount:
+     i: "10000000000000000000"
      max_deposit_period: 48h0m0s
-     
+
 ```
 
 ### Submit proposal
 
 ```
-wmcli tx gov submit-proposal \ 
---validator-id 1 param-change proposal.json \ 
+wmcli tx gov submit-proposal \
+--validator-id 1 param-change proposal.json \
 --chain-id <watchman-chain-id>
 ```
 
 proposal.json is a file which includes proposal in json format.
 
 ```
-{ 
-"title": "Auth Param Change", 
-"description": "Update max tx gas", 
-"changes": [ 
-   { "subspace": "auth", 
-   "key": "MaxTxGas", 
-   "value": "2000000" 
-   } 
-], 
-"deposit": [ 
-   { "denom": "dojima", 
-     "amount": "1000000000000000000" 
-    } 
+{
+"title": "Auth Param Change",
+"description": "Update max tx gas",
+"changes": [
+   { "subspace": "auth",
+   "key": "MaxTxGas",
+   "value": "2000000"
+   }
+],
+"deposit": [
+   { "denom": "dojima",
+     "amount": "1000000000000000000"
+    }
  ]
  }
- ```
+```
 
- ### Query proposal
+### Query proposal
 
 To query all proposals
 
- ```
- wmcli query gov proposals --trust-node
- ```
+```
+wmcli query gov proposals --trust-node
+```
 
- To query particular proposal
+To query particular proposal
 
- ```
- wmcli query gov proposals 1 --trust-node
- ```
+```
+wmcli query gov proposals 1 --trust-node
+```
 
- ### Vote on proposal
+### Vote on proposal
 
- To vote on a particular proposal
+To vote on a particular proposal
 
- ```
- wmcli tx gov vote 1 "Yes" --validator-id 1 --chain-id <watchman-chain-id>
- ```
+```
+wmcli tx gov vote 1 "Yes" --validator-id 1 --chain-id <watchman-chain-id>
+```
 
- Proposal will be automatically tallied after voting period.
+Proposal will be automatically tallied after voting period.
 
- ## REST APIs
+## REST APIs
 
-| Name | Method | Endpoint |
-| :--- | :--- | :--- |
-| Get all proposals | Get | /gov/proposals |
-| Get proposal details | Get | /gov/proposals/proposal-id |
-| Get all votes for the proposal | Get | /gov/proposals/proposal-id/votes |
-
-
-
+| Name                           | Method | Endpoint                         |
+| :----------------------------- | :----- | :------------------------------- |
+| Get all proposals              | Get    | /gov/proposals                   |
+| Get proposal details           | Get    | /gov/proposals/proposal-id       |
+| Get all votes for the proposal | Get    | /gov/proposals/proposal-id/votes |
