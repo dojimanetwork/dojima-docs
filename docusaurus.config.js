@@ -26,12 +26,6 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/dojimanetwork/dojima-docs.git',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/dojimanetwork/dojima-docs.git',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -48,20 +42,6 @@ const config = {
           alt: 'Dojima Logo',
           src: 'img/Logo white.svg',
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Basic',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
       },
       footer: {
         style: 'dark',
