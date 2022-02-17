@@ -49,7 +49,7 @@ Stake call on smart contract fails if slots are unavailable. Validator slots are
 
 Here is ValidatorJoin message for Watchman transaction:
 
-```ts
+```go
 type MsgValidatorJoin struct {
      From hmTypes.HeimdallAddress `json:"from"`
      ID hmTypes.ValidatorID `json:"id"`
@@ -63,7 +63,7 @@ type MsgValidatorJoin struct {
 
 `MsgStakeUpdate` handles the stake update when a validator the re-stakes or new delegation comes in. In either case, the new StakeUpdate event is emitted.
 
-```java
+```go
 /**
 * Stake update event - emitted whenever stake gets updated
 *
@@ -78,7 +78,7 @@ event StakeUpdate(
 
 Here is MsgStakeUpdate message for Heimdall transaction:
 
-```java
+```go
   // MsgStakeUpdate represents stake updatetype MsgStakeUpdate
 struct {
      From hmTypes.HeimdallAddress `json:"from"`
@@ -92,7 +92,7 @@ struct {
 
 `MsgValidatorExit` handles the validator exit process after a validator initiates the exit process on Ethereum. It emits `SignerUpdate` event.
 
-```ts
+```go
 // MsgStakeUpdate represents stake updatetype MsgStakeUpdate
 struct {
       From hmTypes.HeimdallAddress `json:"from"`
@@ -104,7 +104,7 @@ struct {
 
 Here is MsgValidatorExit message for Watchman transaction:
 
-```java
+```go
 type MsgValidatorExit struct {
      From hmTypes.HeimdallAddress `json:"from"`
      ID hmTypes.ValidatorID `json:"id"`
@@ -117,7 +117,7 @@ type MsgValidatorExit struct {
 
 `MsgSignerUpdate` handles the signer update when a validator updates signer key on Ethereum. It emits `SignerUpdate` event.
 
-```ts
+```go
 /**
 * Signer change event - emitted whenever signer key changes
 *
@@ -136,7 +136,7 @@ event SignerChange(
 
 Here is `MsgSignerUpdate` message for Watchman transaction:
 
-```java
+```go
 // MsgSignerUpdate signer update struct
 type MsgSignerUpdate struct {
     From hmTypes.HeimdallAddress `json:"from"`
