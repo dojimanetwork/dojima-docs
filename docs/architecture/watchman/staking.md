@@ -23,7 +23,7 @@ All rewards are distributed on the Ethereum chain. The validators and delegators
 
 Source:[https://github.com/dojimanetwork/watchman/tree/master/contracts/stakinginfo/](https://github.com/dojimanetwork/watchman/tree/master/contracts/stakinginfo/)
 
-```java
+```go
 ** * Staked event - emitted whenever new validator
 *
 * @param signer Signer address for the validator

@@ -38,7 +38,7 @@ const sidebars = {
             "architecture/watchman/overview",
             "architecture/watchman/auth",
             "architecture/watchman/bank",
-            "architecture/watchman/governence",
+            "architecture/watchman/governance",
             "architecture/watchman/staking",
             "architecture/watchman/bor",
             "architecture/watchman/clerk",

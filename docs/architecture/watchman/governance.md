@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 ---
-# Governence
+# Governance
 
 ## Overview
 
@@ -36,7 +36,7 @@ wmcli query gov params --trust-node
 
 This shows all params for governance module
 
-```json
+```yaml
 voting_params:
    voting_period: 48h0m0
 stally_params:
