@@ -1,12 +1,9 @@
 ---
 sidebar_position: 7
 ---
-
-<!-- @format -->
-
 # Bor
 
-**Overview**
+## Overview
 
 Bor module handles span management on Watchman. Given Bulldog chain's current block number `n`, current span `span`, if `span.StartBlock <= n < span.EndBlock`, new span is proposed on Watchman by any validator.
 
@@ -18,7 +15,7 @@ Source:[https://github.com/dojimanetwork/watchman/blob/master/bor/handler.go](ht
 
 MsgProposeSpan sets the validators’ committee for a given span and stores a new span into Watchman state. Here is how this transaction chooses producers out of all validators:
 
-```
+```ts
 // MsgProposeSpan creates msg propose span
 type MsgProposeSpan struct {
      ID uint64 `json:"span_id"`
@@ -34,18 +31,17 @@ type MsgProposeSpan struct {
 2. With all slots, `shuffle` function shuffles them using seed and selects first `producerCount` producers. bor module on Watchman uses ETH 2.0 shuffle algorithm to choose producers out of all validators. Each span n uses block hash of Ethereum (ETH 1.0) block `n` as `seed`. Note that slots based selection allows validators to get selected based on their power. The higher power validator will have a higher probability to get selected.
    Source:[https://github.com/dojimanetwork/watchman/blob/master/bor/selection.go](https://github.com/dojimanetwork/watchman/blob/master/bor/selection.go)
 
-```
+```ts
 // SelectNextProducers selects producers for the next span by converting power to slots
 // spanEligibleVals - all validators eligible for next spanfunc
-SelectNextProducers(blkHash common.Hash, spanEligibleVals []hmTypes.Validator, producerCount uint64) (selectedIDs []uint64, err error) { if len(spanEligibleVals) <= int(producerCount) { for _, val := range spanEligibleVals { selectedIDs = append(selectedIDs, uint64(val.ID)) } return } // extract seed from hash seed := helper.ToBytes32(blkHash.Bytes()[:32]) validatorIndices := convertToSlots(spanEligibleVals) selectedIDs, err = ShuffleList(validatorIndices, seed) if err != nil { return } return selectedIDs[:producerCount], nil}// converts validator power to slotsfunc convertToSlots(vals []hmTypes.Validator) (validatorIndices []uint64) { for _, val := range vals { for val.VotingPower >= types.SlotCost { validatorIndices = append(validatorIndices, uint64(val.ID)) val.VotingPower = val.VotingPower - types.SlotCost } } return validatorIndices}
-
+    SelectNextProducers(blkHash common.Hash, spanEligibleVals []hmTypes.Validator, producerCount uint64) (selectedIDs []uint64, err error) { if len(spanEligibleVals) <= int(producerCount) { for _, val := range spanEligibleVals { selectedIDs = append(selectedIDs, uint64(val.ID)) } return } // extract seed from hash seed := helper.ToBytes32(blkHash.Bytes()[:32]) validatorIndices := convertToSlots(spanEligibleVals) selectedIDs, err = ShuffleList(validatorIndices, seed) if err != nil { return } return selectedIDs[:producerCount], nil}// converts validator power to slotsfunc convertToSlots(vals []hmTypes.Validator) (validatorIndices []uint64) { for _, val := range vals { for val.VotingPower >= types.SlotCost { validatorIndices = append(validatorIndices, uint64(val.ID)) val.VotingPower = val.VotingPower - types.SlotCost } } return validatorIndices}
 ```
 
 ## Types
 
 Here are the span details that Watchman uses:
 
-```
+``` ts
 // Span structure
 type Span struct {
     ID uint64 `json:"span_id" yaml:"span_id"`
@@ -75,7 +71,6 @@ The Bor module contains following parameters
 wmcli tx bor propose-span \
 --start-block <start-block> \
 --chain-id <watchman-chain-id>
-
 ```
 
 **Query current span**
@@ -86,7 +81,7 @@ wmcli query bor span latest-span --chain-id <watchman-chain-id>
 
 Expected output:
 
-```
+```json
 {
   "span_id":2,
   "start_block":6656,
@@ -153,13 +148,12 @@ wmcli query bor params
 sprint_duration: 64
 span_duration: 6400
 producer_count: 4
-
 ```
 
 ## REST APIs
 
 | Name            | Method | Endpoint                      |
 | :-------------- | :----- | :---------------------------- |
-| Span details    | GET    | /bor/span/<span-id></span-id> |
+| Span details    | GET    | /bor/span/`<span-id>` |
 | Get latest span | GET    | /bor/latest-span              |
 | Get params      | GET    | /bor/params                   |

@@ -1,9 +1,6 @@
 ---
 sidebar_position: 4
 ---
-
-<!-- @format -->
-
 # Governence
 
 ## Overview
@@ -65,7 +62,7 @@ wmcli tx gov submit-proposal \
 
 proposal.json is a file which includes proposal in json format.
 
-```
+```json
 {
 "title": "Auth Param Change",
 "description": "Update max tx gas",

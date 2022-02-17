@@ -35,6 +35,7 @@ const sidebars = {
           collapsible: true,
           collapsed: false,
           items: [
+            "architecture/watchman/overview",
             "architecture/watchman/auth",
             "architecture/watchman/bank",
             "architecture/watchman/governence",

@@ -1,9 +1,6 @@
 ---
 sidebar_position: 2
-title: auth
 ---
-
-<!-- @format -->
 
 # Auth
 
@@ -52,7 +49,7 @@ Memo string `json:"memo" yaml:"memo"`
 
 A `StdSignDoc` is a replay-prevention structure to be signed over, which ensures that any submitted transaction (which is simply a signature over a particular byte string) will only be executable once on a Watchman.
 
-```text
+```java
 // StdSignDoc is replay-prevention structure.
 // It includes the result of msg.GetSignBytes(),
 // as well as the ChainID (prevent cross chain replay)
@@ -72,7 +69,7 @@ Memo string `json:"memo" yaml:"memo"`
 It manages addresses, coins and nonce for transactions. It also signs and validates transactions.
 Source:[https://github.com/dojimanetwork/watchman/blob/master/auth/types/account.go](https://github.com/dojimanetwork/watchman/blob/master/auth/types/account.go)
 
-```text
+```typescript
 type BaseAccount struct {
 Address types.HeimdallAddress `json:"address" yaml:"address"`
 Coins types.Coins `json:"coins" yaml:"coins"`
@@ -99,12 +96,10 @@ The auth module contains the following parameters:
 ## CLI Commands
 
 ### Show account
-
 `wmd show-account`
 
 ### Expected Result:
-
-```text
+```json
 {
  "address": "0x68243159a498cf20d945cf3E4250918278BA538E",
  "pub_key": "0x040a9f6879c7cdab7ecc67e157cda15e8b2ddbde107a04bc22d02f50032e393f6360a05e85c7c1ecd201ad30dfb886af12dd02b47e4463f6f0f6f94159dc9f10b8"
@@ -112,13 +107,10 @@ The auth module contains the following parameters:
 ```
 
 ### Account and coin details
-
 To display account details, coins, sequence and account number:
-
 `wmcli query auth account 0x68243159a498cf20d945cf3E4250918278BA538E --trust-node`
 
 ### Expected Result:
-
 ```text
 address: 0x68243159a498cf20d945cf3e4250918278ba538e
 coins:
@@ -131,13 +123,10 @@ sequence: 0
 ```
 
 ### Params
-
 To print all params
-
 `wmcli query auth params`
 
 ### Expected Result:
-
 ```text
 max_memo_characters: 256
 tx_sig_limit: 7
@@ -149,7 +138,6 @@ tx_fees: "1000000000000000"
 ```
 
 ## REST APIs
-
 | Name                     | Endpoint                          | Description                                |
 | :----------------------- | :-------------------------------- | :----------------------------------------- |
 | Account details          | /auth/accounts/{address}          | Returns all details for an address         |

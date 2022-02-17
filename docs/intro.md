@@ -1,9 +1,6 @@
 ---
 sidebar_position: 1
 ---
-
-<!-- @format -->
-
 # Introduction
 
 ![medium](/img/medium.png)

@@ -2,8 +2,6 @@
 sidebar_position: 4
 ---
 
-<!-- @format -->
-
 # Bridge
 
 Bridge Service is one of the important responsibilities of a validator.

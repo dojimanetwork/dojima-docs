@@ -2,8 +2,6 @@
 sidebar_position: 3
 ---
 
-<!-- @format -->
-
 # Bank
 
 ## Overview
@@ -16,7 +14,7 @@ The bank module handles account balance transfers for Watchman. This module corr
 
 `MsgSend` handles transfer between accounts in Watchman. Here is a structure for transaction message:
 
-```text
+```ts
 // MsgSend - high-level transaction of the coin moduletype
 MsgSend struct {
 FromAddress types.HeimdallAddress `json:"from_address"`
@@ -29,7 +27,7 @@ Amount types.Coins `json:"amount"`
 
 `MsgMultiSend` handles multi transfer between account for Watchman.
 
-```text
+```java
 // MsgMultiSend - high-level transaction of the coin moduletype
 MsgMultiSend struct {
 Inputs []Input `json:"inputs"`

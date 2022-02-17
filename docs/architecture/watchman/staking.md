@@ -1,9 +1,6 @@
 ---
 sidebar_position: 6
 ---
-
-<!-- @format -->
-
 # Staking
 
 ## Overview
@@ -26,7 +23,7 @@ All rewards are distributed on the Ethereum chain. The validators and delegators
 
 Source:[https://github.com/dojimanetwork/watchman/tree/master/contracts/stakinginfo/](https://github.com/dojimanetwork/watchman/tree/master/contracts/stakinginfo/)
 
-```
+```ts
 ** * Staked event - emitted whenever new validator
 *
 * @param signer Signer address for the validator
@@ -52,7 +49,7 @@ Stake call on smart contract fails if slots are unavailable. Validator slots are
 
 Here is ValidatorJoin message for Watchman transaction:
 
-```
+```ts
 type MsgValidatorJoin struct {
      From hmTypes.HeimdallAddress `json:"from"`
      ID hmTypes.ValidatorID `json:"id"`
@@ -66,7 +63,7 @@ type MsgValidatorJoin struct {
 
 `MsgStakeUpdate` handles the stake update when a validator the re-stakes or new delegation comes in. In either case, the new StakeUpdate event is emitted.
 
-```
+```ts
 /**
 * Stake update event - emitted whenever stake gets updated
 *
@@ -81,7 +78,7 @@ event StakeUpdate(
 
 Here is MsgStakeUpdate message for Heimdall transaction:
 
-```
+```ts
   // MsgStakeUpdate represents stake updatetype MsgStakeUpdate
 struct {
      From hmTypes.HeimdallAddress `json:"from"`
@@ -95,7 +92,7 @@ struct {
 
 `MsgValidatorExit` handles the validator exit process after a validator initiates the exit process on Ethereum. It emits `SignerUpdate` event.
 
-```
+```ts
 // MsgStakeUpdate represents stake updatetype MsgStakeUpdate
 struct {
       From hmTypes.HeimdallAddress `json:"from"`
@@ -107,7 +104,7 @@ struct {
 
 Here is MsgValidatorExit message for Watchman transaction:
 
-```
+```ts
 type MsgValidatorExit struct {
      From hmTypes.HeimdallAddress `json:"from"`
      ID hmTypes.ValidatorID `json:"id"`
@@ -120,7 +117,7 @@ type MsgValidatorExit struct {
 
 `MsgSignerUpdate` handles the signer update when a validator updates signer key on Ethereum. It emits `SignerUpdate` event.
 
-```
+```ts
 /**
 * Signer change event - emitted whenever signer key changes
 *
@@ -139,7 +136,7 @@ event SignerChange(
 
 Here is `MsgSignerUpdate` message for Watchman transaction:
 
-```
+```ts
 // MsgSignerUpdate signer update struct
 type MsgSignerUpdate struct {
    From hmTypes.HeimdallAddress `json:"from"`
@@ -164,7 +161,7 @@ wmcli query staking validator-info \
 
 This command should display the following output:
 
-```
+```json
 {
   "ID":1,
   "startEpoch":0,
@@ -187,7 +184,7 @@ wmcli query staking validator-info \
 
 This command should display the following output:
 
-```
+```json
 {
   "ID":1,
   "startEpoch":0,
