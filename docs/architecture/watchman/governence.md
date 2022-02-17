@@ -84,13 +84,13 @@ proposal.json is a file which includes proposal in json format.
 
 To query all proposals
 
-```jsx
+```text
 wmcli query gov proposals --trust-node
 ```
 
 To query particular proposal
 
-```jsx
+```text
 wmcli query gov proposals 1 --trust-node
 ```
 
@@ -98,7 +98,7 @@ wmcli query gov proposals 1 --trust-node
 
 To vote on a particular proposal
 
-```jsx
+```text
 wmcli tx gov vote 1 "Yes" --validator-id 1 --chain-id <watchman-chain-id>
 ```
 

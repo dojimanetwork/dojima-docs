@@ -201,7 +201,7 @@ This command should display the following output:
 
 This command sends validator join command through CLI:
 
-```jsx
+```text
 wmcli tx staking validator-join \
 --signer-pubkey <signer-public-key> \
 --tx-hash <tx-hash> \

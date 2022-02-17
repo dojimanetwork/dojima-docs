@@ -15,7 +15,7 @@ Source:[https://github.com/dojimanetwork/watchman/blob/master/bor/handler.go](ht
 
 MsgProposeSpan sets the validators’ committee for a given span and stores a new span into Watchman state. Here is how this transaction chooses producers out of all validators:
 
-```ts
+```go
 // MsgProposeSpan creates msg propose span
 type MsgProposeSpan struct {
      ID uint64 `json:"span_id"`
@@ -41,7 +41,7 @@ type MsgProposeSpan struct {
 
 Here are the span details that Watchman uses:
 
-``` ts
+``` go
 // Span structure
 type Span struct {
     ID uint64 `json:"span_id" yaml:"span_id"`
@@ -67,7 +67,7 @@ The Bor module contains following parameters
 
 **Span propose tx**
 
-```jsx
+```text
 wmcli tx bor propose-span \
 --start-block <start-block> \
 --chain-id <watchman-chain-id>
@@ -75,7 +75,7 @@ wmcli tx bor propose-span \
 
 **Query current span**
 
-```jsx
+```text
 wmcli query bor span latest-span --chain-id <watchman-chain-id>
 ```
 
@@ -128,7 +128,7 @@ Expected output:
 
 Query span by id
 
-```jsx
+```text
 wmcli query bor span --span-id <span-id> --chain-id <watchman-chain-id>
 ```
 
@@ -138,13 +138,13 @@ It prints the result in same format as above
 
 To prints all params
 
-```ts
+```text
 wmcli query bor params
 ```
 
 **Expected Results:**
 
-```json
+```yaml
 sprint_duration: 64
 span_duration: 6400
 producer_count: 4

@@ -28,7 +28,7 @@ Besides accounts (specified in State), the types exposed by the auth module are 
 
 A `StdSignature` is the types of a byte array.
 
-```typescript
+```go
 // StdSignature represents a sig
 type StdSignature []byte
 ```
@@ -37,11 +37,11 @@ type StdSignature []byte
 
 A `StdTx` is a struct that implements the `sdk.Tx` interface, and is likely to be generic enough to serve the purposes of many types of transactions.
 
-```typescript
+```go
 type StdTx struct {
-Msg sdk.Msg `json:"msg" yaml:"msg"`
-Signature StdSignature `json:"signature" yaml:"signature"`
-Memo string `json:"memo" yaml:"memo"`
+    Msg sdk.Msg `json:"msg" yaml:"msg"`
+    Signature StdSignature `json:"signature" yaml:"signature"`
+    Memo string `json:"memo" yaml:"memo"`
 }
 ```
 
@@ -49,18 +49,18 @@ Memo string `json:"memo" yaml:"memo"`
 
 A `StdSignDoc` is a replay-prevention structure to be signed over, which ensures that any submitted transaction (which is simply a signature over a particular byte string) will only be executable once on a Watchman.
 
-```java
+```go
 // StdSignDoc is replay-prevention structure.
 // It includes the result of msg.GetSignBytes(),
 // as well as the ChainID (prevent cross chain replay)
 // and the Sequence numbers for each signature (prevent
 // inchain replay and enforce tx ordering per account).
 type StdSignDoc struct {
-ChainID string `json:"chain_id" yaml:"chain_id"`
-AccountNumber uint64 `json:"account_number" yaml:"account_number"`
-Sequence uint64 `json:"sequence" yaml:"sequence"`
-Msg json.RawMessage `json:"msg" yaml:"msg"`
-Memo string `json:"memo" yaml:"memo"`
+    ChainID string `json:"chain_id" yaml:"chain_id"`
+    AccountNumber uint64 `json:"account_number" yaml:"account_number"`
+    Sequence uint64 `json:"sequence" yaml:"sequence"`
+    Msg json.RawMessage `json:"msg" yaml:"msg"`
+    Memo string `json:"memo" yaml:"memo"`
 }
 ```
 
@@ -69,13 +69,13 @@ Memo string `json:"memo" yaml:"memo"`
 It manages addresses, coins and nonce for transactions. It also signs and validates transactions.
 Source:[https://github.com/dojimanetwork/watchman/blob/master/auth/types/account.go](https://github.com/dojimanetwork/watchman/blob/master/auth/types/account.go)
 
-```typescript
+```go
 type BaseAccount struct {
-Address types.HeimdallAddress `json:"address" yaml:"address"`
-Coins types.Coins `json:"coins" yaml:"coins"`
-PubKey crypto.PubKey `json:"public_key" yaml:"public_key"`
-AccountNumber uint64 `json:"account_number" yaml:"account_number"`
-Sequence uint64 `json:"sequence" yaml:"sequence"`
+    Address types.HeimdallAddress `json:"address" yaml:"address"`
+    Coins types.Coins `json:"coins" yaml:"coins"`
+    PubKey crypto.PubKey `json:"public_key" yaml:"public_key"`
+    AccountNumber uint64 `json:"account_number" yaml:"account_number"`
+    Sequence uint64 `json:"sequence" yaml:"sequence"`
 }
 ```
 
@@ -111,7 +111,7 @@ To display account details, coins, sequence and account number:
 `wmcli query auth account 0x68243159a498cf20d945cf3E4250918278BA538E --trust-node`
 
 ### Expected Result:
-```text
+```yaml
 address: 0x68243159a498cf20d945cf3e4250918278ba538e
 coins:
 - denom: dojima
@@ -127,7 +127,7 @@ To print all params
 `wmcli query auth params`
 
 ### Expected Result:
-```json
+```yaml
 max_memo_characters: 256
 tx_sig_limit: 7
 tx_size_cost_per_byte: 10

@@ -17,7 +17,7 @@ Handler for this transaction validates for any given `msg.TxHash`. It throws `Ol
 
 Here is the structure for the transaction message:
 
-```ts
+```go
 // MsgEventRecord - state msg
 type MsgEventRecord struct {
       From Address `json:"from"`
