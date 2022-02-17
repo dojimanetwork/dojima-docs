@@ -14,7 +14,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  // favicon: "img/dojimaicon.svg",
+  favicon: "img/dojimaicon.svg",
   organizationName: "Dộjima Network", // Usually your GitHub org/user name.
   projectName: "DộjimaDocs", // Usually your repo name.
 
@@ -79,7 +79,7 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/dojimanetwork",
               },
             ],
           },
