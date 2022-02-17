@@ -36,7 +36,7 @@ wmcli query gov params --trust-node
 
 This shows all params for governance module
 
-```
+```json
 voting_params:
    voting_period: 48h0m0
 stally_params:
@@ -54,7 +54,7 @@ deposit_parmas:
 
 ### Submit proposal
 
-```
+```jsx
 wmcli tx gov submit-proposal \
 --validator-id 1 param-change proposal.json \
 --chain-id <watchman-chain-id>
@@ -84,13 +84,13 @@ proposal.json is a file which includes proposal in json format.
 
 To query all proposals
 
-```
+```jsx
 wmcli query gov proposals --trust-node
 ```
 
 To query particular proposal
 
-```
+```jsx
 wmcli query gov proposals 1 --trust-node
 ```
 
@@ -98,7 +98,7 @@ wmcli query gov proposals 1 --trust-node
 
 To vote on a particular proposal
 
-```
+```jsx
 wmcli tx gov vote 1 "Yes" --validator-id 1 --chain-id <watchman-chain-id>
 ```
 

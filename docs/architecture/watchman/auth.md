@@ -127,7 +127,7 @@ To print all params
 `wmcli query auth params`
 
 ### Expected Result:
-```text
+```json
 max_memo_characters: 256
 tx_sig_limit: 7
 tx_size_cost_per_byte: 10

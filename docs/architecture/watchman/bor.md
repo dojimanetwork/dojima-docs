@@ -67,7 +67,7 @@ The Bor module contains following parameters
 
 **Span propose tx**
 
-```text
+```jsx
 wmcli tx bor propose-span \
 --start-block <start-block> \
 --chain-id <watchman-chain-id>
@@ -75,7 +75,7 @@ wmcli tx bor propose-span \
 
 **Query current span**
 
-```
+```jsx
 wmcli query bor span latest-span --chain-id <watchman-chain-id>
 ```
 
@@ -128,7 +128,7 @@ Expected output:
 
 Query span by id
 
-```
+```jsx
 wmcli query bor span --span-id <span-id> --chain-id <watchman-chain-id>
 ```
 
@@ -138,13 +138,13 @@ It prints the result in same format as above
 
 To prints all params
 
-```
+```ts
 wmcli query bor params
 ```
 
 **Expected Results:**
 
-```text
+```json
 sprint_duration: 64
 span_duration: 6400
 producer_count: 4

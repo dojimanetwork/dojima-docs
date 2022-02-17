@@ -14,7 +14,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/dojimaicon.svg",
+  // favicon: "img/dojimaicon.svg",
   organizationName: "Dộjima Network", // Usually your GitHub org/user name.
   projectName: "DộjimaDocs", // Usually your repo name.
 
@@ -39,10 +39,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        // title: 'Dojima',
+         title: 'Dộjima Docs',
         logo: {
           alt: "Dojima Logo",
-          src: "img/Logo white.svg",
+          src: "img/dojimaicon.svg",
         },
       },
       footer: {

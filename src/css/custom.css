@@ -6,8 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* --dev-dash-bg: url("../../static/img/dojimaicon.svg")no-repeat;
-  --dev-dash-bg: url("../../static/img/dojimalogo.svg")no-repeat; */
+  --dev-dash-bg: url("../../static/img/dojimaicon.svg")no-repeat;
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -20,7 +19,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
-  /* --dev-dash-bg: url("../../static/img/dojimalogo.svg")no-repeat; */
+   --dev-dash-bg: url("../../static/img/dojimalogo.svg")no-repeat; 
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;

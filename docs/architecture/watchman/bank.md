@@ -17,9 +17,9 @@ The bank module handles account balance transfers for Watchman. This module corr
 ```ts
 // MsgSend - high-level transaction of the coin moduletype
 MsgSend struct {
-FromAddress types.HeimdallAddress `json:"from_address"`
-ToAddress types.HeimdallAddress `json:"to_address"`
-Amount types.Coins `json:"amount"`
+    FromAddress types.HeimdallAddress `json:"from_address"`
+    ToAddress types.HeimdallAddress `json:"to_address"`
+    Amount types.Coins `json:"amount"`
 }
 ```
 
@@ -30,8 +30,8 @@ Amount types.Coins `json:"amount"`
 ```java
 // MsgMultiSend - high-level transaction of the coin moduletype
 MsgMultiSend struct {
-Inputs []Input `json:"inputs"`
-Outputs []Output `json:"outputs"`
+    Inputs []Input `json:"inputs"`
+    Outputs []Output `json:"outputs"`
 }
 ```
 
