@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="image/dojimanetworklogo.png">
+  <img src="static/img/dojimanetworklogo.png?raw=true">
 </div>
 
  ## Dojima Docs
