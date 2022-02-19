@@ -20,7 +20,7 @@ Contributing to the docs site is a great way to get involved with the Dojima dev
 
 ### Pull Request (PR)
 * All PRs should be made against the `master` branch.
-* Once your PR is merged into `master`, [https://docs.avax.network/](https://docs.dojima.network/) will be updated with your changes.
+* Once your PR is merged into `master`, [https://docs.dojima.network/](https://docs.dojima.network/) will be updated with your changes.
 
 
 ### Installation
