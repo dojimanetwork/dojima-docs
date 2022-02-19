@@ -1,8 +1,27 @@
-<!-- @format -->
+<div align="center">
+  <img src="image/dojimanetworklogo.png">
+</div>
 
-# Website
+ ## Dojima Docs
+ 
+ ## Overview
+This repo contains the contents for our docs deployed [here](https://docs.avax.network).
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+The website is built using [Docusaurus 2](https://docusaurus.io/).
+
+## Contributing
+
+Contributing to the docs site is a great way to get involved with the Dojima dev community! Here's some things you need to know to get started.
+
+### Contents
+* All the docs are located in the [docs](docs) directory.
+* The left side-bar of the page is controlled by [sidebars.js](sidebars.js).
+* Extensive docs for Docusaurus can be found [here](https://docusaurus.io/docs).
+
+### Pull Request (PR)
+* All PRs should be made against the `master` branch.
+* Once your PR is merged into `master`, [https://docs.avax.network/](https://docs.avax.network/) will be updated with your changes.
+
 
 ### Installation
 
