@@ -5,7 +5,7 @@
  ## Dojima Docs
  
  ## Overview
-This repo contains the contents for our docs deployed [here](https://docs.avax.network).
+This repo contains the contents for our docs deployed [here](https://docs.dojima.network).
 
 The website is built using [Docusaurus 2](https://docusaurus.io/).
 
@@ -20,7 +20,7 @@ Contributing to the docs site is a great way to get involved with the Dojima dev
 
 ### Pull Request (PR)
 * All PRs should be made against the `master` branch.
-* Once your PR is merged into `master`, [https://docs.avax.network/](https://docs.avax.network/) will be updated with your changes.
+* Once your PR is merged into `master`, [https://docs.avax.network/](https://docs.dojima.network/) will be updated with your changes.
 
 
 ### Installation
