@@ -9,9 +9,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Dộjima Network",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  tagline: "Organizing the Unorganized Web3.0",
+  url: "https://docs.dojima.network/",
+  baseUrl: "/developers/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/dojimaicon.svg",
@@ -70,7 +70,7 @@ const config = {
             items: [
               {
                 label: "Tutorial",
-                to: "/docs/intro",
+                to: "/developers/docs/intro",
               },
             ],
           },
