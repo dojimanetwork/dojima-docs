@@ -9,6 +9,14 @@ This repo contains the contents for our docs deployed [here](https://docs.dojima
 
 The website is built using [Docusaurus 2](https://docusaurus.io/).
 
+## Deployment
+set environment variables
+```ts
+EXPORT TAG=2022_03_12-v0.0.1-master
+EXPORT REGION=region_name
+```
+run deploy.sh script to push to aws ecr repository.
+
 ## Contributing
 
 Contributing to the docs site is a great way to get involved with the Dojima dev community! Here's some things you need to know to get started.
