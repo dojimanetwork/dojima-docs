@@ -16,10 +16,6 @@ pipeline {
 
 	}
 
-	tools {
-        jdk 'Java11'
-    }
-
     stages {
         stage ('Checkout') {
             steps {
