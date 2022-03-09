@@ -33,7 +33,8 @@ pipeline {
         stage('Auto tagging') {
           steps {
             script {
-              FINALTAG = sh (script: "bash /opt/jenkins-tag/tag.sh ${params.RELEASE_MODE} ${params.BRANCH}", returnStdout: true).trim()
+              //FINALTAG = sh (script: "bash /opt/jenkins-tag/tag.sh ${params.RELEASE_MODE} ${params.BRANCH}", returnStdout: true).trim()
+	 	FINALTAG = sh (script: "echo `date '+%Y%m%d-%H%M' ` ",returnStdout: true).trim()
               echo "Tag is : ${FINALTAG}"
             }
             echo "Returned Tag is : ${FINALTAG}"
