@@ -19,7 +19,7 @@ pipeline {
 
     stages {
 	
-	stage('Initialize') {
+	    stage('Initialize') {
         	def dockerHome = tool 'myDocker'
         	env.PATH = "${dockerHome}/bin:${env.PATH}"
     	}
@@ -41,8 +41,8 @@ pipeline {
           steps {
             script {
               //FINALTAG = sh (script: "bash /opt/jenkins-tag/tag.sh ${params.RELEASE_MODE} ${params.BRANCH}", returnStdout: true).trim()
-	 	FINALTAG = sh (script: "echo `date '+%Y%m%d-%H%M' ` ",returnStdout: true).trim()
-              echo "Tag is : ${FINALTAG}"
+	 	        FINALTAG = sh (script: "echo `date '+%Y%m%d-%H%M' ` ",returnStdout: true).trim()
+                echo "Tag is : ${FINALTAG}"
             }
             echo "Returned Tag is : ${FINALTAG}"
           }
@@ -50,7 +50,7 @@ pipeline {
 
 
 
-	stage('Build') {
+	    stage('Build') {
             steps {
                 sh "docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
             }
