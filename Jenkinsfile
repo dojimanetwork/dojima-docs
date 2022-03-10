@@ -15,8 +15,15 @@ pipeline {
 		gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
 
 	}
+	
 
     stages {
+	
+	stage('Initialize') {
+        	def dockerHome = tool 'myDocker'
+        	env.PATH = "${dockerHome}/bin:${env.PATH}"
+    	}
+	    
         stage ('Checkout') {
             steps {
                 script {
@@ -43,7 +50,7 @@ pipeline {
 
 
 
-		stage('Build') {
+	stage('Build') {
             steps {
                 sh "docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
             }
