@@ -1,6 +1,9 @@
 pipeline {
-    agent { label 'master' }
+    agent any
 
+    tools{
+        docker "myDocker"
+    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
         timeout(time: 30, unit: 'MINUTES')
@@ -19,15 +22,15 @@ pipeline {
 
     stages {
         
-        stage ('Initialize') {
-            steps {
-                script {
-                    def dockerHome = tool 'myDocker'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}" 
-                }
+        // stage ('Initialize') {
+        //     steps {
+        //         script {
+        //             def dockerHome = tool 'myDocker'
+        //             env.PATH = "${dockerHome}/bin:${env.PATH}" 
+        //         }
                 
-            }     
-        }
+        //     }     
+        // }
         
         stage ('Checkout') {
             steps {
