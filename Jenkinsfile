@@ -1,9 +1,9 @@
 pipeline {
     agent { label 'master'}
 
-    // tools{
-    //     docker "myDocker"
-    // }
+    tools{
+        docker "myDocker"
+    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
         timeout(time: 30, unit: 'MINUTES')
