@@ -59,7 +59,8 @@ pipeline {
         stage('Build and Publish') {
             steps {
                 container('dojima') {
-                    sh "echo $PATH; printenv; uname -a; hostname; docker -v; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
+                    // sh "echo $PATH; printenv; uname -a;"
+                    sh "hostname; docker -v; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
                     sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
                     script {
                         docker.withRegistry("https://${params.ECR_URL}", "ecr:ap-south-1:AWSECR") {
