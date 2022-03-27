@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master'}
+    agent { label 'master' }
 
     // tools{
     //     docker "myDocker"
@@ -21,7 +21,7 @@ pipeline {
 
 
     stages {
-        stage ('Initialize') {
+        stage('Initialize') {
             steps {
                 script {
                     def dockerHome = tool 'myDocker'
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage ('Checkout') {
+        stage('Checkout') {
             steps {
                 script {
                     if ("${params.BRANCH_NAME}" == 'master' || "${params.BRANCH_NAME}".startsWith('release-')) {
@@ -48,13 +48,12 @@ pipeline {
             steps {
                 script {
                     //FINALTAG = sh (script: "bash /opt/jenkins-tag/tag.sh ${params.RELEASE_MODE} ${params.BRANCH}", returnStdout: true).trim()
-                    FINALTAG = sh (script: "echo `date '+%Y%m%d-%H%M' ` ",returnStdout: true).trim()
+                    FINALTAG = sh(script: "echo `date '+%Y%m%d-%H%M' ` ", returnStdout: true).trim()
                     echo "Tag is : ${FINALTAG}"
                 }
                 echo "Returned Tag is : ${FINALTAG}"
             }
         }
-
 
 
         stage('Build and Publish') {
@@ -72,31 +71,31 @@ pipeline {
         }
 
 
-        stage('Publish') {
-            steps {
-                script {
+//        stage('Publish') {
+//            steps {
+//                script {
 //                     sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
 // 		            docker.withRegistry("https://${params.ECR_URL}", "ecr:ap-south-1:AWSECR") {
 //                         sh "docker push ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
 //                     }
-                }
-            }
-        }
+//                }
+//            }
+//        }
     }
 
     post {
         success {
             writeFile file: "output/tag.txt", text: "tag=1.1"
             archiveArtifacts artifacts: 'output/*.txt'
-            emailext (recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], to: "bhagath.reddy@dojima.network", subject:"RELEASE BUILD SUCCESS: ${currentBuild.fullDisplayName}", body: "Release Build Successful! Reports Attached. Please review the reports and take necessary actions.")
+            emailext(recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], to: "bhagath.reddy@dojima.network", subject: "RELEASE BUILD SUCCESS: ${currentBuild.fullDisplayName}", body: "Release Build Successful! Reports Attached. Please review the reports and take necessary actions.")
         }
 
         failure {
-            emailext (recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']], to: "bhagath.reddy@dojima.network", subject:"RELEASE BUILD FAILURE: ${currentBuild.fullDisplayName}", body: "Release Build Failed! Your commits is suspected to have caused the build failure. Please go to ${BUILD_URL} for details and resolve the build failure at the earliest.", attachLog: true, compressLog: true)
+            emailext(recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']], to: "bhagath.reddy@dojima.network", subject: "RELEASE BUILD FAILURE: ${currentBuild.fullDisplayName}", body: "Release Build Failed! Your commits is suspected to have caused the build failure. Please go to ${BUILD_URL} for details and resolve the build failure at the earliest.", attachLog: true, compressLog: true)
         }
 
         aborted {
-            emailext (recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], subject:"RELEASE BUILD ABORTED: ${currentBuild.fullDisplayName}", body: "Release Build Aborted! Please go to ${BUILD_URL} and verify the build.", attachLog: false, compressLog: false)
+            emailext(recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], subject: "RELEASE BUILD ABORTED: ${currentBuild.fullDisplayName}", body: "Release Build Aborted! Please go to ${BUILD_URL} and verify the build.", attachLog: false, compressLog: false)
         }
     }
 }
