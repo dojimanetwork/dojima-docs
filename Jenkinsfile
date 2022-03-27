@@ -11,26 +11,26 @@ pipeline {
     }
 
     parameters {
-		string(name: 'PROJECT_NAME', defaultValue: 'Dojima Docs', description: '')
-		string(name: 'DOCKER_IMG_NAME', defaultValue: 'core/docs', description: '')
-		string(name: 'ECR_URL', defaultValue: '576263512135.dkr.ecr.ap-south-1.amazonaws.com/', description: '')
-		choice(name: 'RELEASE_MODE', choices: ['patch', 'minor', 'major'], description: 'Pick one.')
-		gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+        string(name: 'PROJECT_NAME', defaultValue: 'Dojima Docs', description: '')
+        string(name: 'DOCKER_IMG_NAME', defaultValue: 'core/docs', description: '')
+        string(name: 'ECR_URL', defaultValue: '576263512135.dkr.ecr.ap-south-1.amazonaws.com/', description: '')
+        choice(name: 'RELEASE_MODE', choices: ['patch', 'minor', 'major'], description: 'Pick one.')
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
 
-	}
-	
+    }
+
 
     stages {
         stage ('Initialize') {
             steps {
                 script {
                     def dockerHome = tool 'myDocker'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}" 
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
                 }
-                
-            }     
+
+            }
         }
-        
+
         stage ('Checkout') {
             steps {
                 script {
@@ -45,36 +45,36 @@ pipeline {
         }
 
         stage('Auto tagging') {
-          steps {
-            script {
-              //FINALTAG = sh (script: "bash /opt/jenkins-tag/tag.sh ${params.RELEASE_MODE} ${params.BRANCH}", returnStdout: true).trim()
-	 	        FINALTAG = sh (script: "echo `date '+%Y%m%d-%H%M' ` ",returnStdout: true).trim()
-                echo "Tag is : ${FINALTAG}"
+            steps {
+                script {
+                    //FINALTAG = sh (script: "bash /opt/jenkins-tag/tag.sh ${params.RELEASE_MODE} ${params.BRANCH}", returnStdout: true).trim()
+                    FINALTAG = sh (script: "echo `date '+%Y%m%d-%H%M' ` ",returnStdout: true).trim()
+                    echo "Tag is : ${FINALTAG}"
+                }
+                echo "Returned Tag is : ${FINALTAG}"
             }
-            echo "Returned Tag is : ${FINALTAG}"
-          }
         }
 
 
 
-	    stage('Build and Publish') {
+        stage('Build and Publish') {
             steps {
-		    container('dojima') {
-			    script {
-				sh "echo $PATH; printenv; uname -a; hostname; docker -v; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
-				sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
-				    docker.withRegistry("https://${params.ECR_URL}", "ecr:ap-south-1:AWSECR") {
-				sh "docker push ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
-                    		}
-			}
-            	}
-	    }
+                container('dojima') {
+                    sh "echo $PATH; printenv; uname -a; hostname; docker -v; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
+                    sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
+                    script {
+                        docker.withRegistry("https://${params.ECR_URL}", "ecr:ap-south-1:AWSECR") {
+                            sh "docker push ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
+                        }
+                    }
+                }
+            }
         }
 
 
         stage('Publish') {
             steps {
-                 script {
+                script {
 //                     sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
 // 		            docker.withRegistry("https://${params.ECR_URL}", "ecr:ap-south-1:AWSECR") {
 //                         sh "docker push ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
@@ -84,20 +84,21 @@ pipeline {
         }
     }
 
-	post {
-		success {
-		    writeFile file: "output/tag.txt", text: "tag=1.1"
-		    archiveArtifacts artifacts: 'output/*.txt'
-			emailext (recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], to: "bhagath.reddy@dojima.network", subject:"RELEASE BUILD SUCCESS: ${currentBuild.fullDisplayName}", body: "Release Build Successful! Reports Attached. Please review the reports and take necessary actions.")
-		}
+    post {
+        success {
+            writeFile file: "output/tag.txt", text: "tag=1.1"
+            archiveArtifacts artifacts: 'output/*.txt'
+            emailext (recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], to: "bhagath.reddy@dojima.network", subject:"RELEASE BUILD SUCCESS: ${currentBuild.fullDisplayName}", body: "Release Build Successful! Reports Attached. Please review the reports and take necessary actions.")
+        }
 
-		failure {
-			emailext (recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']], to: "bhagath.reddy@dojima.network", subject:"RELEASE BUILD FAILURE: ${currentBuild.fullDisplayName}", body: "Release Build Failed! Your commits is suspected to have caused the build failure. Please go to ${BUILD_URL} for details and resolve the build failure at the earliest.", attachLog: true, compressLog: true)
-		}
+        failure {
+            emailext (recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']], to: "bhagath.reddy@dojima.network", subject:"RELEASE BUILD FAILURE: ${currentBuild.fullDisplayName}", body: "Release Build Failed! Your commits is suspected to have caused the build failure. Please go to ${BUILD_URL} for details and resolve the build failure at the earliest.", attachLog: true, compressLog: true)
+        }
 
-		aborted {
-			emailext (recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], subject:"RELEASE BUILD ABORTED: ${currentBuild.fullDisplayName}", body: "Release Build Aborted! Please go to ${BUILD_URL} and verify the build.", attachLog: false, compressLog: false)
-		}
-	}
+        aborted {
+            emailext (recipientProviders: [[$class: 'RequesterRecipientProvider'], [$class: 'DevelopersRecipientProvider']], subject:"RELEASE BUILD ABORTED: ${currentBuild.fullDisplayName}", body: "Release Build Aborted! Please go to ${BUILD_URL} and verify the build.", attachLog: false, compressLog: false)
+        }
+    }
 }
+
 
