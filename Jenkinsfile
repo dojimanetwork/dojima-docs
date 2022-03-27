@@ -76,7 +76,7 @@ pipeline {
 //                     sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
 // 		            docker.withRegistry("https://${params.ECR_URL}", "ecr:ap-south-1:AWSECR") {
 //                         sh "docker push ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
-                    }
+//                     }
                 }
             }
         }
