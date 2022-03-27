@@ -60,7 +60,7 @@ pipeline {
 
 	    stage('Build') {
             steps {
-                sh "echo $PATH; which docker; docker -v; uname -a; hostname; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
+                sh "echo $PATH; uname -a; hostname; docker -v; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
             }
         }
 
