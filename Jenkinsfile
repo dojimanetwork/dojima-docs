@@ -21,7 +21,7 @@ pipeline {
 	
 
     stages {
-        
+	    container('dojima') {
         stage ('Initialize') {
             steps {
                 script {
@@ -76,6 +76,7 @@ pipeline {
             }
         }
 
+	    }
     }
 
 	post {
