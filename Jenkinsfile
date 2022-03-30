@@ -60,7 +60,7 @@ pipeline {
             steps {
                 container('dojima') {
                     // sh "echo $PATH; printenv; uname -a;"
-                    sh "ls -Altrh /var/run; ls -Altrh /run; "
+                    sh "ls -Altrh /var/run; ls -Altrh /run; ls -Altrh /var/run/docker.sock"
                     sh "hostname; docker -v; docker build -t ${params.DOCKER_IMG_NAME} -f Dockerfile ."
                     sh "docker tag ${params.DOCKER_IMG_NAME}:latest ${params.ECR_URL}${params.DOCKER_IMG_NAME}:${FINALTAG}"
                     script {
