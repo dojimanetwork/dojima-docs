@@ -17,4 +17,4 @@ Dojima Network is powered by three main components working together:
 And one more thing to state here is that Arweave is used as a backup layer for all of Dojima networks transactions at regular intervals, thus making the dojima network more secure, immutable and permanent.
 :::
 
-<iframe width="100%" height="480px" src="https://www.youtube.com/embed/HYy3N7E0qSw" title="Dojima Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- <iframe width="100%" height="480px" src="https://www.youtube.com/embed/HYy3N7E0qSw" title="Dojima Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
