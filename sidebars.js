@@ -22,6 +22,8 @@ const sidebars = {
 
   tutorialSidebar: [
     "intro",
+    "overview",
+    "journey",
     {
       type: "category",
       label: "Architecture",
@@ -29,32 +31,34 @@ const sidebars = {
       collapsed: false,
       items: [
         "architecture/overview",
-        {
-          type: "category",
-          label: "Watchman",
-          collapsible: true,
-          collapsed: false,
-          items: [
-            "architecture/watchman/overview",
-            "architecture/watchman/auth",
-            "architecture/watchman/bank",
-            "architecture/watchman/governance",
-            "architecture/watchman/staking",
-            "architecture/watchman/bor",
-            "architecture/watchman/clerk",
-          ],
-        },
-        {
-          type: "category",
-          label: "BullDog",
-          collapsible: true,
-          collapsed: false,
-          items: [
-            "architecture/bulldog/overview",
-            "architecture/bulldog/bulldogarchitecture",
-          ],
-        },
-        "architecture/bridge",
+        "architecture/introduction",
+        "architecture/narada",
+        // {
+        //   type: "category",
+        //   label: "Watchman",
+        //   collapsible: true,
+        //   collapsed: false,
+        //   items: [
+        //     "architecture/watchman/overview",
+        //     "architecture/watchman/auth",
+        //     "architecture/watchman/bank",
+        //     "architecture/watchman/governance",
+        //     "architecture/watchman/staking",
+        //     "architecture/watchman/bor",
+        //     "architecture/watchman/clerk",
+        //   ],
+        // },
+        // {
+        //   type: "category",
+        //   label: "BullDog",
+        //   collapsible: true,
+        //   collapsed: false,
+        //   items: [
+        //     "architecture/bulldog/overview",
+        //     "architecture/bulldog/bulldogarchitecture",
+        //   ],
+        // },
+        // "architecture/bridge",
       ],
     },
   ],

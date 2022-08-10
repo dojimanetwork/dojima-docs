@@ -3,7 +3,9 @@ sidebar_position: 1
 ---
 # Overview
 
-![medium](/img/medium.png)
+### Dojima Architecture
+
+<!-- ![medium](/img/medium.png)
 
 Dojima Network is powered by three main components working together:
 
@@ -15,6 +17,23 @@ Dojima Network is powered by three main components working together:
 
 :::info
 And one more thing to state here is that Arweave is used as a backup layer for all of Dojima networks transactions at regular intervals, thus making the dojima network more secure, immutable and permanent.
-:::
+::: -->
+
+Dojima Network is a multi-layer architecture. 
+
+It consists of 2 blockchains working together in a decentralised manner with all other blockchains to both fetch liquidity and act as a cross-chain platform for developers to develop cross-chain applications.
+
+1. Hermes Layer : built on top of Cosmos SDK and tendermint.
+
+2. DojimaChain Layer: middle ground layer where developers can deploy applications and access hermes layer to get connected to all chains.
+
+We developed a buffer layer on top of cosmos sdk and tendermint which is connected to all major blockchains and maintains liquidity pools to hold liquidity of native tokens and other tokens of major blockchain platforms. The liquidity data will be signed by all validators at every end of the block and supplied to contracts on top of the middle ground dojima blockchain to be accessed by smart contracts built by crosschain dapp developers.
+
+Let's go in depth on the architecture of Dojima Network.
+
+#### Hermes Layer
+
+<!-- Add Image -->
+
 
 <!-- <iframe width="100%" height="480px" src="https://www.youtube.com/embed/HYy3N7E0qSw" title="Dojima Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
