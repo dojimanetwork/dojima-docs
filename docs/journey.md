@@ -21,7 +21,7 @@ Based on requirements and value proposition alongside capital, the Dojima team w
 Fast forward to the third quarter of 2022 we are gearing up to launch our testnet in Q3 of 2022. The launch of the testnet will also follow with the release of cross-chain platforms along with a cross-chain wallet and cross-chain applications for testing purposes. During this period, proper documentation would be implemented for deploying and establishing a cross-chain connection on the Dojima network. So, between the period of the testnet and mainnet, a suite of tools will be released for easy onboarding and deployment of Dapps onto the Dojima Network.
 
 
- Also worthy of note is that during this period, our revamped website would be launched in preparation for the testnet and subsequently the mainnet launch in the first half of 2023. The new website will go live in Q3 2022. Do not hesitate to check our new website on [official.dojima.network ](official.dojima.network ) and familiarize yourself with it.
+ Also worthy of note is that during this period, our revamped website would be launched in preparation for the testnet and subsequently the mainnet launch in the first half of 2023. The new website will go live in Q3 2022. Do not hesitate to check our new website on [https://www.dojima.network](https://www.dojima.network) and familiarize yourself with it.
 
  The aim of dojima network has been stated, the project is in the pipeline, the road map has been set, the team is working and growing, and something unique is coming. Dojima Network will surely be a catalyst in the blockchain and crypto cross-chain infrastructure space.
 
