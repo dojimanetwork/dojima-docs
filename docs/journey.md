@@ -14,8 +14,6 @@ The Dojima Network founders have built the initial team and designed the archite
 
 In 2021, we got incubated by the Arweave Open Web Foundry and we became the finalist. Shortly after that (precisely Q4 2021), we completed our seed round and got funding from the top VCs in the crypto space. Currently, the Dojima Network is backed by the following industry leaders with vast experience in the tech and the crypto ecosystem:
 
-<!-- add image -->
-
 Based on requirements and value proposition alongside capital, the Dojima team would consider investors from the non-crypto space. But at the moment we are happy with the investors that are already on board to push this project to fruition.
 
 Fast forward to the third quarter of 2022 we are gearing up to launch our testnet in Q3 of 2022. The launch of the testnet will also follow with the release of cross-chain platforms along with a cross-chain wallet and cross-chain applications for testing purposes. During this period, proper documentation would be implemented for deploying and establishing a cross-chain connection on the Dojima network. So, between the period of the testnet and mainnet, a suite of tools will be released for easy onboarding and deployment of Dapps onto the Dojima Network.
@@ -26,3 +24,5 @@ Fast forward to the third quarter of 2022 we are gearing up to launch our testne
  The aim of dojima network has been stated, the project is in the pipeline, the road map has been set, the team is working and growing, and something unique is coming. Dojima Network will surely be a catalyst in the blockchain and crypto cross-chain infrastructure space.
 
  You can keep abreast of all Dojima Network activities prior to the test net and beyond the main net by following us on all our channels below. You are just a click away from reaching us.
+
+ ![medium](/img/dojimainvester.jpg)

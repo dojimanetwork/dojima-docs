@@ -4,16 +4,9 @@ sidebar_position: 1
 
 # Introduction
 
-### DOJIMA NETWORK CROSS-CHAIN INFRASTRUCTURE
+### Dojima Network Cross-Chain Infrastructure
 
-![medium](/img/medium.png)
-
-<!-- **Dojima Network** - A robust decentralized infrastructure that enables
-
-- Buffer Zones
-- Omni-present Protocols
-- Cross-chain Interoperability
-- Cross-chain Liquidity Pooling -->
+![medium](/img/dojima.jpg)
 
 The blockchain and crypto space has witnessed massive adoption when compared to when the first cryptocurrency, Bitcoin, first came into the limelight in 2009. Ever since different blockchains (both public and private) have been built by several blockchain enthusiasts, as well as various protocols and Decentralized Applications (Dapps) that interact in these independent blockchains.
 
