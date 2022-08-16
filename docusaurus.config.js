@@ -11,7 +11,7 @@ const config = {
   title: "Dộjima Network",
   tagline: "Organizing the Unorganized Web3.0",
   url: "https://docs.dojima.network/",
-  baseUrl: "/developers/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/dojimaicon.svg",
@@ -70,7 +70,7 @@ const config = {
             items: [
               {
                 label: "Tutorial",
-                to: "/developers/docs/intro",
+                to: "/docs/intro",
               },
             ],
           },
