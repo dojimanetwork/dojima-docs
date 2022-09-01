@@ -19,7 +19,7 @@ RUN yarn build
 # STAGE 2 - build the final image using a nginx web server 
 # distribution and copy the react build files
 FROM nginx:alpine
-COPY --from=build /app/build /var/www/
+COPY --from=build /app/build /var/www/developer-docs
 # needed this to make React Router work properly 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 # Expose port 80 for HTTP Traffic 
