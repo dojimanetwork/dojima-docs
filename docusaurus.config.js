@@ -82,6 +82,10 @@ const config = {
                 label: "Medium",
                 href: "https://medium.com/@dojimanetwork",
               },
+              {
+                label:"Youtube",
+                href:"https://www.youtube.com/channel/UCsSbfV_Kl7FgLBOdOCOWCkw"
+              }
             ],
           },
           {

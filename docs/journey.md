@@ -2,7 +2,9 @@
 sidebar_position: 3
 ---
 
-# HOW FAR WE HAVE COME
+# About Us
+
+ ![medium](/img/dojimainvester.jpg)
 
 The term Dojima has its origin in Japan. Dojima was derived from the name of the world’s first derivative exchange in Japan in the 16th century and was adopted for the Dojima Network.
 
@@ -25,4 +27,3 @@ Fast forward to the third quarter of 2022 we are gearing up to launch our testne
 
  You can keep abreast of all Dojima Network activities prior to the test net and beyond the main net by following us on all our channels below. You are just a click away from reaching us.
 
- ![medium](/img/dojimainvester.jpg)

@@ -34,6 +34,6 @@ Let's go in depth on the architecture of Dojima Network.
 #### Hermes Layer
 
 <!-- Add Image -->
-
+![medium](/img/hermeslayer.svg)
 
 <!-- <iframe width="100%" height="480px" src="https://www.youtube.com/embed/HYy3N7E0qSw" title="Dojima Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->

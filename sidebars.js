@@ -32,7 +32,7 @@ const sidebars = {
       items: [
         "architecture/overview",
         "architecture/introduction",
-        "architecture/narada",
+        "architecture/dojimachain",
         // {
         //   type: "category",
         //   label: "Watchman",
