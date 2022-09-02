@@ -2,7 +2,6 @@
   "name": "dojima-docs",
   "version": "0.0.0",
   "private": true,
-  "homepage": "/developer-docs",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
