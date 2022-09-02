@@ -11,7 +11,7 @@ const config = {
   title: "Dộjima Network",
   tagline: "Organizing the Unorganized Web3.0",
   url: "https://docs.dojima.network/",
-  baseUrl: "/",
+  baseUrl: "/developer/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/dojimaicon.svg",
@@ -24,8 +24,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path:'developer-docs',
-          routeBasePath: 'developer-docs',
+
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/dojimanetwork/dojima-docs.git",

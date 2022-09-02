@@ -4,5 +4,5 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 export default function Home() {
-  return <Redirect to="/developer-docs/intro" />;
+  return <Redirect to="/developer/docs/intro" />;
 }
